@@ -37,7 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Play = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.difficulty = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,17 +64,17 @@
             this.score.AutoSize = true;
             this.score.BackColor = System.Drawing.Color.SteelBlue;
             this.score.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.score.Font = new System.Drawing.Font("Droid Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score.Location = new System.Drawing.Point(12, 13);
+            this.score.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score.Location = new System.Drawing.Point(12, 607);
             this.score.Name = "score";
-            this.score.Size = new System.Drawing.Size(64, 26);
+            this.score.Size = new System.Drawing.Size(70, 27);
             this.score.TabIndex = 1;
             this.score.Text = "Score";
             // 
             // heightBox
             // 
             this.heightBox.BackColor = System.Drawing.Color.Silver;
-            this.heightBox.Location = new System.Drawing.Point(307, 13);
+            this.heightBox.Location = new System.Drawing.Point(308, 19);
             this.heightBox.Name = "heightBox";
             this.heightBox.Size = new System.Drawing.Size(35, 20);
             this.heightBox.TabIndex = 2;
@@ -83,7 +82,7 @@
             // widthBox
             // 
             this.widthBox.BackColor = System.Drawing.Color.Silver;
-            this.widthBox.Location = new System.Drawing.Point(307, 46);
+            this.widthBox.Location = new System.Drawing.Point(494, 18);
             this.widthBox.Name = "widthBox";
             this.widthBox.Size = new System.Drawing.Size(35, 20);
             this.widthBox.TabIndex = 3;
@@ -92,45 +91,34 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.SteelBlue;
-            this.label2.Font = new System.Drawing.Font("Droid Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(258, 17);
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(253, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Height";
+            this.label2.Text = "Height:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.SteelBlue;
-            this.label3.Font = new System.Drawing.Font("Droid Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(258, 50);
+            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(445, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.Size = new System.Drawing.Size(47, 16);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Width";
+            this.label3.Text = "Width:";
             // 
             // Play
             // 
-            this.Play.Font = new System.Drawing.Font("Droid Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Play.Location = new System.Drawing.Point(481, 39);
+            this.Play.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Play.Location = new System.Drawing.Point(631, 12);
             this.Play.Name = "Play";
             this.Play.Size = new System.Drawing.Size(237, 29);
             this.Play.TabIndex = 6;
             this.Play.Text = "Play";
             this.Play.UseVisualStyleBackColor = true;
             this.Play.Click += new System.EventHandler(this.Play_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Gainsboro;
-            this.label4.Font = new System.Drawing.Font("Droid Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(748, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 45);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Easy 10% mines \r\nMedium 20% mines\r\nHard 30% mines";
             // 
             // difficulty
             // 
@@ -140,7 +128,7 @@
             "Easy",
             "Medium",
             "Hard"});
-            this.difficulty.Location = new System.Drawing.Point(571, 12);
+            this.difficulty.Location = new System.Drawing.Point(109, 18);
             this.difficulty.Name = "difficulty";
             this.difficulty.Size = new System.Drawing.Size(121, 21);
             this.difficulty.TabIndex = 11;
@@ -149,21 +137,21 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.SteelBlue;
-            this.label5.Font = new System.Drawing.Font("Droid Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(500, 15);
+            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(18, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 18);
+            this.label5.Size = new System.Drawing.Size(85, 19);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Difficulty";
+            this.label5.Text = "Difficulty:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.SteelBlue;
-            this.label6.Font = new System.Drawing.Font("Droid Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(349, 15);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(350, 21);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 13);
+            this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "min. 5 - max. 25";
             // 
@@ -171,10 +159,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.SteelBlue;
-            this.label7.Font = new System.Drawing.Font("Droid Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(349, 50);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(536, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 13);
+            this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "min. 5 - max. 40";
             // 
@@ -183,10 +171,10 @@
             this.remainingFlags.AutoSize = true;
             this.remainingFlags.BackColor = System.Drawing.Color.SteelBlue;
             this.remainingFlags.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.remainingFlags.Font = new System.Drawing.Font("Droid Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remainingFlags.Location = new System.Drawing.Point(12, 43);
+            this.remainingFlags.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remainingFlags.Location = new System.Drawing.Point(192, 607);
             this.remainingFlags.Name = "remainingFlags";
-            this.remainingFlags.Size = new System.Drawing.Size(58, 26);
+            this.remainingFlags.Size = new System.Drawing.Size(67, 27);
             this.remainingFlags.TabIndex = 15;
             this.remainingFlags.Text = "Flags";
             // 
@@ -199,7 +187,7 @@
             // 
             this.secondsBox.BackColor = System.Drawing.Color.Bisque;
             this.secondsBox.Enabled = false;
-            this.secondsBox.Location = new System.Drawing.Point(171, 46);
+            this.secondsBox.Location = new System.Drawing.Point(845, 607);
             this.secondsBox.Name = "secondsBox";
             this.secondsBox.Size = new System.Drawing.Size(23, 20);
             this.secondsBox.TabIndex = 16;
@@ -208,7 +196,7 @@
             // 
             this.minutesBox.BackColor = System.Drawing.Color.Bisque;
             this.minutesBox.Enabled = false;
-            this.minutesBox.Location = new System.Drawing.Point(137, 46);
+            this.minutesBox.Location = new System.Drawing.Point(811, 607);
             this.minutesBox.Name = "minutesBox";
             this.minutesBox.Size = new System.Drawing.Size(23, 20);
             this.minutesBox.TabIndex = 17;
@@ -218,10 +206,10 @@
             this.time.AutoSize = true;
             this.time.BackColor = System.Drawing.Color.SteelBlue;
             this.time.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.time.Font = new System.Drawing.Font("Droid Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.time.Location = new System.Drawing.Point(137, 13);
+            this.time.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time.Location = new System.Drawing.Point(744, 603);
             this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(57, 26);
+            this.time.Size = new System.Drawing.Size(61, 27);
             this.time.TabIndex = 18;
             this.time.Text = "Time";
             // 
@@ -230,7 +218,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.SteelBlue;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(159, 46);
+            this.label1.Location = new System.Drawing.Point(833, 607);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 20);
             this.label1.TabIndex = 19;
@@ -252,7 +240,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.difficulty);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.Play);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -280,7 +267,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Play;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox difficulty;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

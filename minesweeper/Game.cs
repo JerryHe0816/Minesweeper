@@ -377,12 +377,14 @@ namespace Minesweeper
             switch (id)
             {
                 case 1:
-                    MessageBox.Show("Empty Fields !");
+                    MessageBox.Show("Empty fields!");
                     break;
                 case 2:
-                    MessageBox.Show("Wrong Input !");
+                    MessageBox.Show("Invalid input!");
                     break;
-
+                case 3:
+                    MessageBox.Show("Input not in range!");
+                    break;
             }
         }
 
@@ -410,6 +412,11 @@ namespace Minesweeper
                 if (hasLetters(heightBox.Text) || hasLetters(widthBox.Text))
                 {
                     Warnings(2);
+                    result = false;
+                }
+                else if (Int32.Parse(heightBox.Text) < 5 || Int32.Parse(widthBox.Text) < 5 || Int32.Parse(heightBox.Text) > 25 || Int32.Parse(widthBox.Text) > 40)
+                {
+                    Warnings(3);
                     result = false;
                 }
             }
