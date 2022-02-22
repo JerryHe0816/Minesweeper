@@ -32,11 +32,10 @@ namespace Minesweeper
         //Table aspect
         int start_x, start_y;
         int height, width;
-        
+
         //Game variables
         int mines;
         int flag_value = 10;
-        int gameDifficulty;
         int flags;
 
         //Button aspect
@@ -46,7 +45,7 @@ namespace Minesweeper
         //Coeficients for difficulty
         double easyCoef = 0.1f;
         double mediumCoef = 0.2f;
-        double hardCoef = 0.3f; 
+        double hardCoef = 0.3f;
 
         public Game()
         {
@@ -63,10 +62,10 @@ namespace Minesweeper
             btn[x, y].Enabled = false;
             btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
 
-            if (gameover && btn_prop[x,y] == flag_value)
+            if (gameover && btn_prop[x, y] == flag_value)
                 btn_prop[x, y] = saved_btn_prop[x, y];
 
-            if (gameover)
+            if (gameover == true)
                 timer.Stop();
 
             switch (btn_prop[x, y])
@@ -110,11 +109,11 @@ namespace Minesweeper
 
                 case -1:
                     btn[x, y].BackgroundImage = Minesweeper.Properties.Resources.bmb;
-                    if(!gameover)
-                    GameOver();
+                    if (!gameover)
+                        GameOver();
                     break;
             }
-            
+
         }
 
         int isPointOnMap(int x, int y)
@@ -126,7 +125,7 @@ namespace Minesweeper
 
         void EmptySpace(int x, int y)
         {
-            if(btn_prop[x,y] == 0)
+            if (btn_prop[x, y] == 0)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -141,7 +140,7 @@ namespace Minesweeper
                             set_ButtonImage(cx, cy);
                         }
                 }
-            }    
+            }
         }
 
         void Discover_Map()
@@ -158,7 +157,7 @@ namespace Minesweeper
         {
             gameover = true;
             Discover_Map();
-            MessageBox.Show("Game Over !"); 
+            MessageBox.Show("Game Over !");
         }
 
         void Check_FlagWin()
@@ -190,7 +189,7 @@ namespace Minesweeper
             bool win = true;
             for (int i = 1; i <= width; i++)
                 for (int j = 1; j <= height; j++)
-                    if (btn[i,j].Enabled == true && saved_btn_prop[i,j] != -1)
+                    if (btn[i, j].Enabled == true && saved_btn_prop[i, j] != -1)
                         win = false;
 
             if (win)
@@ -221,13 +220,13 @@ namespace Minesweeper
                 }
 
                 set_ButtonImage(x, y);
-            }    
+            }
         }
 
         int MinesAround(int x, int y)
         {
             int score = 0;
-            for(int i = 0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 int cx = x + dx8[i];
                 int cy = y + dy8[i];
@@ -271,21 +270,21 @@ namespace Minesweeper
                 }
                 else
                     if (btn_prop[x, y] == flag_value)
-                    {
-                        btn_prop[x, y] = saved_btn_prop[x, y];
-                        btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                        btn[x, y].BackgroundImage = null;
-                        flags++;
-                    }
+                {
+                    btn_prop[x, y] = saved_btn_prop[x, y];
+                    btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+                    btn[x, y].BackgroundImage = null;
+                    flags++;
+                }
 
                 remainingFlags.Text = "Flags: " + flags;
             }
         }
-                    
+
         void CreateButtons(int x, int y)
         {
-            for(int i = 1; i <= x; i++)
-                for(int j = 1; j <= y; j++)
+            for (int i = 1; i <= x; i++)
+                for (int j = 1; j <= y; j++)
                 {
                     btn[i, j] = new Button();
                     btn[i, j].SetBounds(i * buttonSize + start_x, j * buttonSize + start_y, distance_between, distance_between);
@@ -304,14 +303,14 @@ namespace Minesweeper
             List<int> coordx = new List<int>();
             List<int> coordy = new List<int>();
 
-            while(mines > 0)
+            while (mines > 0)
             {
                 coordx.Clear();
                 coordy.Clear();
 
                 for (int i = 1; i <= x; i++)
                     for (int j = 1; j <= y; j++)
-                        if(btn_prop[i,j] != -1)
+                        if (btn_prop[i, j] != -1)
                         {
                             coordx.Add(i);
                             coordy.Add(j);
@@ -326,19 +325,17 @@ namespace Minesweeper
 
         void StartGame()
         {
-            switch (difficulty.Text)
+            if (difficulty.Text == "Easy")
             {
-                case "Easy":
-                    mines = (int)(height * width * easyCoef);
-                    break;
-
-                case "Medium":
-                    mines = (int)(height * width * mediumCoef);
-                    break;
-
-                case "Hard":
-                    mines = (int)(height * width * hardCoef);
-                    break;
+                mines = (int)(height * width * easyCoef);
+            }
+            else if (difficulty.Text == "Medium")
+            {
+                mines = (int)(height * width * mediumCoef);
+            }
+            else if (difficulty.Text == "Hard")
+            {
+                mines = (int)(height * width * hardCoef);
             }
 
             flags = mines;
@@ -354,17 +351,17 @@ namespace Minesweeper
             remainingFlags.Text = "Flags: " + flags;
             score.Text = "Score: " + 0;
 
-            if(firstPlay)
+            if (firstPlay)
                 CreateButtons(width, height);
 
             GenerateMap(width, height, mines);
             SetMapNumbers(width, height);
-            
+
         }
 
         void ResetGame(int x, int y)
         {
-            for(int i = 1; i <= x; i++)
+            for (int i = 1; i <= x; i++)
                 for (int j = 1; j <= y; j++)
                 {
                     btn[i, j].Enabled = true;
@@ -429,13 +426,13 @@ namespace Minesweeper
                 height = 25;
             else
                 if (height < 5)
-                    height = 5;
+                height = 5;
 
             if (width > 40)
                 width = 40;
             else
                 if (width < 5)
-                    width = 5;
+                width = 5;
 
             heightBox.Text = height.ToString();
             widthBox.Text = width.ToString();
@@ -468,10 +465,10 @@ namespace Minesweeper
                 }
                 else
                     if (!firstPlay)
-                    {
-                        ResetGame(width, height);
-                        StartGame();
-                    }
+                {
+                    ResetGame(width, height);
+                    StartGame();
+                }
             }
 
         }
@@ -480,10 +477,12 @@ namespace Minesweeper
         {
             seconds++;
 
-            if (seconds == 60)
+            switch (seconds)
             {
-                minutes++;
-                seconds = 0;
+                case 60:
+                    minutes++;
+                    seconds = 0;
+                    break;
             }
 
             secondsBox.Text = seconds.ToString();
