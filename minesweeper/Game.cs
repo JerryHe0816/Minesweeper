@@ -44,7 +44,7 @@ namespace Minesweeper
 
         //Coeficients for difficulty
         double easyCoef = 0.1f;
-        double mediumCoef = 0.2f;
+        double normalCoef = 0.2f;
         double hardCoef = 0.3f;
 
         public Game()
@@ -329,9 +329,9 @@ namespace Minesweeper
             {
                 mines = (int)(height * width * easyCoef);
             }
-            else if (difficulty.Text == "Medium")
+            else if (difficulty.Text == "Normal")
             {
-                mines = (int)(height * width * mediumCoef);
+                mines = (int)(height * width * normalCoef);
             }
             else if (difficulty.Text == "Hard")
             {
