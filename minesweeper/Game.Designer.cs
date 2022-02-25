@@ -277,5 +277,5 @@
         private System.Windows.Forms.TextBox minutesBox;
         private System.Windows.Forms.Label time;
         private System.Windows.Forms.Label label1;
-   }
+    }
 }

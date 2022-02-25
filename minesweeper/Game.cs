@@ -181,7 +181,7 @@ namespace Minesweeper
             gameover = true;
             Discover_Map();
             gameProgress.Value = 0;
-            MessageBox.Show("Win !");
+            MessageBox.Show("You win!");
         }
 
         void Check_ClickWin()
