@@ -122,39 +122,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\6.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\7.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\8.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\blank.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bmb.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -183,36 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\6.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\7.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\8.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\blank.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Resources\bmb.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2.bmp" />
@@ -246,6 +183,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flag.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
