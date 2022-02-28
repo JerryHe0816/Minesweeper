@@ -239,8 +239,6 @@ namespace Minesweeper
                     if (btn_prop[i, j] != -1)
                     {
                         btn_prop[i, j] = MinesAround(i, j);
-                        //Debugging
-                        //btn[i, j].Text = btn_prop[i, j].ToString();
                         saved_btn_prop[i, j] = MinesAround(i, j);
                     }
         }
@@ -266,10 +264,10 @@ namespace Minesweeper
                 else
                     if (btn_prop[x, y] == flag_value)
                     {
-                    btn_prop[x, y] = saved_btn_prop[x, y];
-                    btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                    btn[x, y].BackgroundImage = null;
-                    flags++;
+                        btn_prop[x, y] = saved_btn_prop[x, y];
+                        btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+                        btn[x, y].BackgroundImage = null;
+                        flags++;
                     }
 
                 remainingFlags.Text = "Flags: " + flags;
@@ -446,7 +444,6 @@ namespace Minesweeper
 
             if (CorrectFields())
             {
-
                 SetDimensions();
                 TableMargins(height, width);
 
@@ -460,12 +457,11 @@ namespace Minesweeper
                 }
                 else
                     if (!firstPlay)
-                {
-                    ResetGame(width, height);
-                    StartGame();
-                }
+                    {
+                        ResetGame(width, height);
+                        StartGame();
+                    }
             }
-
         }
 
         private void timer_Tick(object sender, EventArgs e)
