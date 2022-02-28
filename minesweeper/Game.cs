@@ -152,7 +152,7 @@ namespace Minesweeper
         {
             gameover = true;
             Discover_Map();
-            MessageBox.Show("Game Over !");
+            MessageBox.Show("Game Over!");
         }
 
         void Check_FlagWin()
@@ -251,7 +251,7 @@ namespace Minesweeper
             if (e.Button == MouseButtons.Right)
             {
 
-                coord = ((Button)sender).Location;
+                coord = ((Button) sender).Location;
                 int x = (coord.X - start_x) / buttonSize;
                 int y = (coord.Y - start_y) / buttonSize;
 
