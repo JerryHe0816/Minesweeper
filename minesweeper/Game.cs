@@ -42,11 +42,6 @@ namespace Minesweeper
         int buttonSize = 20;
         int distance_between = 20;
 
-        //Coeficients for difficulty
-        double easyCoef = 0.1f;
-        double normalCoef = 0.2f;
-        double hardCoef = 0.3f;
-
         public Game()
         {
             InitializeComponent();
@@ -325,18 +320,7 @@ namespace Minesweeper
 
         void StartGame()
         {
-            if (difficulty.Text == "Easy")
-            {
-                mines = (int)(height * width * easyCoef);
-            }
-            else if (difficulty.Text == "Normal")
-            {
-                mines = (int)(height * width * normalCoef);
-            }
-            else if (difficulty.Text == "Hard")
-            {
-                mines = (int)(height * width * hardCoef);
-            }
+            mines = (int)(height * width * Int32.Parse(coef.Text) * 0.01);
 
             flags = mines;
             gameover = false;
@@ -401,20 +385,20 @@ namespace Minesweeper
         {
             bool result = true;
 
-            if (heightBox.Text == "" || widthBox.Text == "" || difficulty.Text == "")
+            if (heightBox.Text == "" || widthBox.Text == "" || coef.Text == "")
             {
                 Warnings(1);
                 result = false;
             }
             else
-            if (heightBox.Text != "" && widthBox.Text != "" && difficulty.Text != "")
+            if (heightBox.Text != "" && widthBox.Text != "" && coef.Text != "")
             {
-                if (hasLetters(heightBox.Text) || hasLetters(widthBox.Text))
+                if (hasLetters(heightBox.Text) || hasLetters(widthBox.Text) || hasLetters(coef.Text))
                 {
                     Warnings(2);
                     result = false;
                 }
-                else if (Int32.Parse(heightBox.Text) < 5 || Int32.Parse(widthBox.Text) < 5 || Int32.Parse(heightBox.Text) > 25 || Int32.Parse(widthBox.Text) > 40)
+                else if (Int32.Parse(heightBox.Text) < 5 || Int32.Parse(widthBox.Text) < 5 || Int32.Parse(heightBox.Text) > 25 || Int32.Parse(widthBox.Text) > 40 || Int32.Parse(coef.Text) > 100 || Int32.Parse(coef.Text) < 0)
                 {
                     Warnings(3);
                     result = false;
@@ -452,6 +436,10 @@ namespace Minesweeper
             start_y = (this.Size.Height - (height + 2) * distance_between) / 2;
         }
 
+        private void gameProgress_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void Play_Click(object sender, EventArgs e)
         {
