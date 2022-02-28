@@ -75,15 +75,15 @@
             // 
             // heightBox
             // 
-            this.heightBox.BackColor = System.Drawing.Color.Silver;
-            this.heightBox.Location = new System.Drawing.Point(369, 39);
+            this.heightBox.BackColor = System.Drawing.SystemColors.Window;
+            this.heightBox.Location = new System.Drawing.Point(397, 36);
             this.heightBox.Name = "heightBox";
             this.heightBox.Size = new System.Drawing.Size(35, 20);
             this.heightBox.TabIndex = 2;
             // 
             // widthBox
             // 
-            this.widthBox.BackColor = System.Drawing.Color.Silver;
+            this.widthBox.BackColor = System.Drawing.SystemColors.Window;
             this.widthBox.Location = new System.Drawing.Point(556, 38);
             this.widthBox.Name = "widthBox";
             this.widthBox.Size = new System.Drawing.Size(35, 20);
@@ -94,7 +94,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(254, 40);
+            this.label2.Location = new System.Drawing.Point(282, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 16);
             this.label2.TabIndex = 4;
@@ -113,25 +113,27 @@
             // 
             // Play
             // 
+            this.Play.BackColor = System.Drawing.SystemColors.HotTrack;
             this.Play.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Play.ForeColor = System.Drawing.Color.Transparent;
             this.Play.Location = new System.Drawing.Point(632, 33);
             this.Play.Name = "Play";
             this.Play.Size = new System.Drawing.Size(237, 29);
             this.Play.TabIndex = 6;
             this.Play.Text = "Play";
-            this.Play.UseVisualStyleBackColor = true;
+            this.Play.UseVisualStyleBackColor = false;
             this.Play.Click += new System.EventHandler(this.Play_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(29, 38);
+            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(-4, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 19);
+            this.label5.Size = new System.Drawing.Size(198, 19);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Mine Density:";
+            this.label5.Text = "Mine Density (0 - 100):";
             // 
             // label7
             // 
@@ -203,7 +205,7 @@
             // 
             // coef
             // 
-            this.coef.Location = new System.Drawing.Point(153, 37);
+            this.coef.Location = new System.Drawing.Point(200, 35);
             this.coef.Name = "coef";
             this.coef.Size = new System.Drawing.Size(41, 20);
             this.coef.TabIndex = 20;
@@ -213,7 +215,7 @@
             this.percent.AutoSize = true;
             this.percent.BackColor = System.Drawing.Color.Transparent;
             this.percent.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percent.Location = new System.Drawing.Point(189, 37);
+            this.percent.Location = new System.Drawing.Point(238, 34);
             this.percent.Name = "percent";
             this.percent.Size = new System.Drawing.Size(21, 21);
             this.percent.TabIndex = 21;

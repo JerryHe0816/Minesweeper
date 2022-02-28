@@ -318,7 +318,7 @@ namespace Minesweeper
 
         void StartGame()
         {
-            mines = (int)(height * width * Int32.Parse(coef.Text) * 0.01);
+            mines = (int)(height * width * int.Parse(coef.Text) * 0.01);
 
             flags = mines;
             gameover = false;
@@ -396,7 +396,7 @@ namespace Minesweeper
                     Warnings(2);
                     result = false;
                 }
-                else if (Int32.Parse(heightBox.Text) < 5 || Int32.Parse(widthBox.Text) < 5 || Int32.Parse(heightBox.Text) > 25 || Int32.Parse(widthBox.Text) > 40 || Int32.Parse(coef.Text) > 100 || Int32.Parse(coef.Text) < 0)
+                else if (int.Parse(coef.Text) > 100 || int.Parse(coef.Text) < 0)
                 {
                     Warnings(3);
                     result = false;
