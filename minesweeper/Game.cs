@@ -111,11 +111,11 @@ namespace Minesweeper
 
         }
 
-        int isPointOnMap(int x, int y)
+        bool isPointOnMap(int x, int y)
         {
             if (x < 1 || x > width || y < 1 || y > height)
-                return 0;
-            return 1;
+                return false;
+            return true;
         }
 
         void EmptySpace(int x, int y)
@@ -127,7 +127,7 @@ namespace Minesweeper
                     int cx = x + dx8[i];
                     int cy = y + dy8[i];
 
-                    if (isPointOnMap(cx, cy) == 1)
+                    if (isPointOnMap(cx, cy))
                         if (btn[cx, cy].Enabled == true && btn_prop[cx, cy] != -1 && !gameover)
                         {
                             gameProgress.Value++;
@@ -226,7 +226,7 @@ namespace Minesweeper
                 int cx = x + dx8[i];
                 int cy = y + dy8[i];
 
-                if (isPointOnMap(cx, cy) == 1 && btn_prop[cx, cy] == -1)
+                if (isPointOnMap(cx, cy) && btn_prop[cx, cy] == -1)
                     score++;
             }
             return score;
@@ -265,12 +265,12 @@ namespace Minesweeper
                 }
                 else
                     if (btn_prop[x, y] == flag_value)
-                {
+                    {
                     btn_prop[x, y] = saved_btn_prop[x, y];
                     btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
                     btn[x, y].BackgroundImage = null;
                     flags++;
-                }
+                    }
 
                 remainingFlags.Text = "Flags: " + flags;
             }
