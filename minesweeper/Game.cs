@@ -434,11 +434,6 @@ namespace Minesweeper
             start_y = (this.Size.Height - (height + 2) * distance_between) / 2;
         }
 
-        private void gameProgress_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Play_Click(object sender, EventArgs e)
         {
 

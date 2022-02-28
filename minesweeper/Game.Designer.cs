@@ -59,7 +59,6 @@
             this.gameProgress.Size = new System.Drawing.Size(884, 10);
             this.gameProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.gameProgress.TabIndex = 0;
-            this.gameProgress.Click += new System.EventHandler(this.gameProgress_Click);
             // 
             // score
             // 
