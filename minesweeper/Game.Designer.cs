@@ -47,6 +47,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.coef = new System.Windows.Forms.TextBox();
             this.percent = new System.Windows.Forms.Label();
+            this.highScoreLabel = new System.Windows.Forms.Label();
+            this.highS = new System.Windows.Forms.Label();
+            this.highScoreReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gameProgress
@@ -62,13 +65,13 @@
             // 
             // score
             // 
+            this.score.AutoEllipsis = true;
             this.score.AutoSize = true;
             this.score.BackColor = System.Drawing.Color.Transparent;
-            this.score.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.score.Font = new System.Drawing.Font("MS PGothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score.Location = new System.Drawing.Point(12, 614);
             this.score.Name = "score";
-            this.score.Size = new System.Drawing.Size(92, 29);
+            this.score.Size = new System.Drawing.Size(90, 27);
             this.score.TabIndex = 1;
             this.score.Text = "Score:";
             // 
@@ -148,11 +151,10 @@
             // 
             this.remainingFlags.AutoSize = true;
             this.remainingFlags.BackColor = System.Drawing.Color.Transparent;
-            this.remainingFlags.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.remainingFlags.Font = new System.Drawing.Font("MS PGothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remainingFlags.Location = new System.Drawing.Point(189, 614);
+            this.remainingFlags.Location = new System.Drawing.Point(195, 614);
             this.remainingFlags.Name = "remainingFlags";
-            this.remainingFlags.Size = new System.Drawing.Size(83, 29);
+            this.remainingFlags.Size = new System.Drawing.Size(81, 27);
             this.remainingFlags.TabIndex = 15;
             this.remainingFlags.Text = "Flags:";
             // 
@@ -165,7 +167,7 @@
             // 
             this.secondsBox.BackColor = System.Drawing.Color.SpringGreen;
             this.secondsBox.Enabled = false;
-            this.secondsBox.Location = new System.Drawing.Point(849, 623);
+            this.secondsBox.Location = new System.Drawing.Point(849, 621);
             this.secondsBox.Name = "secondsBox";
             this.secondsBox.Size = new System.Drawing.Size(23, 20);
             this.secondsBox.TabIndex = 16;
@@ -174,7 +176,7 @@
             // 
             this.minutesBox.BackColor = System.Drawing.Color.SpringGreen;
             this.minutesBox.Enabled = false;
-            this.minutesBox.Location = new System.Drawing.Point(815, 623);
+            this.minutesBox.Location = new System.Drawing.Point(815, 621);
             this.minutesBox.Name = "minutesBox";
             this.minutesBox.Size = new System.Drawing.Size(23, 20);
             this.minutesBox.TabIndex = 17;
@@ -183,11 +185,10 @@
             // 
             this.time.AutoSize = true;
             this.time.BackColor = System.Drawing.Color.Transparent;
-            this.time.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.time.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.time.Location = new System.Drawing.Point(729, 616);
+            this.time.Location = new System.Drawing.Point(731, 614);
             this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(80, 29);
+            this.time.Size = new System.Drawing.Size(78, 27);
             this.time.TabIndex = 18;
             this.time.Text = "Time:";
             // 
@@ -196,7 +197,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(837, 623);
+            this.label1.Location = new System.Drawing.Point(837, 621);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 20);
             this.label1.TabIndex = 19;
@@ -220,6 +221,38 @@
             this.percent.TabIndex = 21;
             this.percent.Text = "%";
             // 
+            // highScoreLabel
+            // 
+            this.highScoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.highScoreLabel.Font = new System.Drawing.Font("MS PGothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highScoreLabel.Location = new System.Drawing.Point(375, 614);
+            this.highScoreLabel.Name = "highScoreLabel";
+            this.highScoreLabel.Size = new System.Drawing.Size(150, 29);
+            this.highScoreLabel.TabIndex = 22;
+            this.highScoreLabel.Text = "High Score:";
+            this.highScoreLabel.UseCompatibleTextRendering = true;
+            // 
+            // highS
+            // 
+            this.highS.AutoSize = true;
+            this.highS.BackColor = System.Drawing.Color.Gold;
+            this.highS.Font = new System.Drawing.Font("MS PGothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highS.Location = new System.Drawing.Point(531, 614);
+            this.highS.Name = "highS";
+            this.highS.Size = new System.Drawing.Size(0, 27);
+            this.highS.TabIndex = 23;
+            // 
+            // highScoreReset
+            // 
+            this.highScoreReset.BackColor = System.Drawing.Color.Transparent;
+            this.highScoreReset.Location = new System.Drawing.Point(590, 618);
+            this.highScoreReset.Name = "highScoreReset";
+            this.highScoreReset.Size = new System.Drawing.Size(102, 23);
+            this.highScoreReset.TabIndex = 24;
+            this.highScoreReset.Text = "Reset High Score";
+            this.highScoreReset.UseVisualStyleBackColor = false;
+            this.highScoreReset.Click += new System.EventHandler(this.highScoreReset_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,6 +260,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(884, 661);
+            this.Controls.Add(this.highScoreReset);
+            this.Controls.Add(this.highS);
+            this.Controls.Add(this.highScoreLabel);
             this.Controls.Add(this.percent);
             this.Controls.Add(this.coef);
             this.Controls.Add(this.label1);
@@ -273,5 +309,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox coef;
         private System.Windows.Forms.Label percent;
+        private System.Windows.Forms.Label highScoreLabel;
+        private System.Windows.Forms.Label highS;
+        private System.Windows.Forms.Button highScoreReset;
     }
 }

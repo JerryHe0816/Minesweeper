@@ -151,6 +151,15 @@ namespace Minesweeper
         void GameOver()
         {
             gameover = true;
+
+            int saved = int.Parse(highS.Text);
+            if (gameProgress.Value > saved)
+            {
+                highS.Text = gameProgress.Value.ToString();
+                Properties.Settings.Default.highScore = highS.Text;
+                Properties.Settings.Default.Save();
+            }
+
             Discover_Map();
             MessageBox.Show("Game Over!");
         }
@@ -174,6 +183,15 @@ namespace Minesweeper
         void WinGame()
         {
             gameover = true;
+            
+            int saved = int.Parse(highS.Text);
+            if (gameProgress.Value > saved)
+            {
+                highS.Text = gameProgress.Value.ToString(); 
+                Properties.Settings.Default.highScore = highS.Text;
+                Properties.Settings.Default.Save();
+            }
+
             Discover_Map();
             gameProgress.Value = 0;
             MessageBox.Show("You win!");
@@ -320,6 +338,8 @@ namespace Minesweeper
         {
             mines = (int)(height * width * int.Parse(coef.Text) * 0.01);
 
+            highS.Text = Properties.Settings.Default.highScore;
+
             flags = mines;
             gameover = false;
 
@@ -432,6 +452,12 @@ namespace Minesweeper
         {
             start_x = (this.Size.Width - (width + 2) * distance_between) / 2;
             start_y = (this.Size.Height - (height + 2) * distance_between) / 2;
+        }
+
+        private void highScoreReset_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.highScore = "0";
+            highS.Text = Properties.Settings.Default.highScore;
         }
 
         private void Play_Click(object sender, EventArgs e)
