@@ -121,7 +121,7 @@
             this.Play.Location = new System.Drawing.Point(632, 33);
             this.Play.Name = "Play";
             this.Play.Size = new System.Drawing.Size(237, 29);
-            this.Play.TabIndex = 6;
+            this.Play.TabIndex = 4;
             this.Play.Text = "Play";
             this.Play.UseVisualStyleBackColor = false;
             this.Play.Click += new System.EventHandler(this.Play_Click);
@@ -208,7 +208,7 @@
             this.coef.Location = new System.Drawing.Point(200, 35);
             this.coef.Name = "coef";
             this.coef.Size = new System.Drawing.Size(41, 20);
-            this.coef.TabIndex = 20;
+            this.coef.TabIndex = 1;
             // 
             // percent
             // 
@@ -245,10 +245,10 @@
             // highScoreReset
             // 
             this.highScoreReset.BackColor = System.Drawing.Color.Transparent;
-            this.highScoreReset.Location = new System.Drawing.Point(590, 618);
+            this.highScoreReset.Location = new System.Drawing.Point(610, 618);
             this.highScoreReset.Name = "highScoreReset";
             this.highScoreReset.Size = new System.Drawing.Size(102, 23);
-            this.highScoreReset.TabIndex = 24;
+            this.highScoreReset.TabIndex = 5;
             this.highScoreReset.Text = "Reset High Score";
             this.highScoreReset.UseVisualStyleBackColor = false;
             this.highScoreReset.Click += new System.EventHandler(this.highScoreReset_Click);

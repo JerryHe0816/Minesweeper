@@ -31,7 +31,7 @@ namespace Minesweeper
 
         //Table aspect
         int start_x, start_y;
-        int height, width;
+        int height, width, area;
 
         //Game variables
         int mines;
@@ -42,14 +42,14 @@ namespace Minesweeper
         int buttonSize = 20;
         int distance_between = 20;
 
-        public Game()
-        {
-            InitializeComponent();
-        }
-
         private void Game_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public Game()
+        {
+            InitializeComponent();
         }
 
         void set_ButtonImage(int x, int y)
@@ -57,7 +57,7 @@ namespace Minesweeper
             btn[x, y].Enabled = false;
             btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
 
-            if (gameover && btn_prop[x, y] == flag_value)
+            if (gameover == true && btn_prop[x, y] == flag_value)
                 btn_prop[x, y] = saved_btn_prop[x, y];
 
             if (gameover == true)
@@ -113,9 +113,9 @@ namespace Minesweeper
 
         bool isPointOnMap(int x, int y)
         {
-            if (x < 1 || x > width || y < 1 || y > height)
-                return false;
-            return true;
+            if (x >= 1 && x <= width && y >= 1 && y <= height)
+                return true;
+            return false;
         }
 
         void EmptySpace(int x, int y)
@@ -175,6 +175,7 @@ namespace Minesweeper
 
             if (win)
             {
+                score.Text = "Score: " + area.ToString();
                 WinGame();
             }
         }
@@ -187,7 +188,7 @@ namespace Minesweeper
             int saved = int.Parse(highS.Text);
             if (gameProgress.Value > saved)
             {
-                highS.Text = gameProgress.Value.ToString(); 
+                highS.Text = area.ToString(); 
                 Properties.Settings.Default.highScore = highS.Text;
                 Properties.Settings.Default.Save();
             }
@@ -195,7 +196,7 @@ namespace Minesweeper
             Discover_Map();
             gameProgress.Value = 0;
             MessageBox.Show("You win!");
-        }
+        } 
 
         void Check_ClickWin()
         {
@@ -207,6 +208,7 @@ namespace Minesweeper
 
             if (win)
             {
+                score.Text = "Score: " + area.ToString();
                 WinGame();
             }
         }
@@ -336,7 +338,7 @@ namespace Minesweeper
 
         void StartGame()
         {
-            mines = (int)(height * width * int.Parse(coef.Text) * 0.01);
+            mines = (int)(area * int.Parse(coef.Text) * 0.01);
 
             highS.Text = Properties.Settings.Default.highScore;
 
@@ -344,7 +346,7 @@ namespace Minesweeper
             gameover = false;
 
             gameProgress.Value = 0;
-            gameProgress.Maximum = height * width - mines;
+            gameProgress.Maximum = area - mines;
 
             timer.Start();
             seconds = 0;
@@ -446,6 +448,8 @@ namespace Minesweeper
             heightBox.Text = height.ToString();
             widthBox.Text = width.ToString();
 
+            area = height * width;
+
         }
 
         void TableMargins(int x, int y)
@@ -462,7 +466,7 @@ namespace Minesweeper
 
         private void Play_Click(object sender, EventArgs e)
         {
-
+            
             if (CorrectFields())
             {
                 SetDimensions();
