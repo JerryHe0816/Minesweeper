@@ -12,35 +12,28 @@ namespace Minesweeper
 {
     public partial class Game : Form
     {
+        Point coord;
 
         Button[,] btn = new Button[41, 41];
         int[,] btn_prop = new int[41, 41];
         int[,] saved_btn_prop = new int[41, 41];
-        Point coord;
 
         bool firstPlay = true;
         bool gameover = false;
 
-        //Time
-        int seconds = 0;
-        int minutes = 0;
+        int seconds, minutes = 0;
 
-        //Points that are around
         int[] dx8 = { 1, 0, -1, 0, 1, -1, -1, 1 };
         int[] dy8 = { 0, 1, 0, -1, 1, -1, 1, -1 };
 
-        //Table aspect
         int start_x, start_y;
         int height, width, area;
 
-        //Game variables
-        int mines;
+        int mines, flags;
         int flag_value = 10;
-        int flags;
 
-        //Button aspect
-        int buttonSize = 20;
-        int distance_between = 20;
+        int btnSize = 20;
+        int distanceBtwn = 20;
 
         private void Game_Load(object sender, EventArgs e)
         {
@@ -65,6 +58,12 @@ namespace Minesweeper
 
             switch (btn_prop[x, y])
             {
+                case -1:
+                    btn[x, y].BackgroundImage = Minesweeper.Properties.Resources.bmb;
+                    if (!gameover)
+                        GameOver();
+                    break;
+
                 case 0:
                     btn[x, y].BackgroundImage = Minesweeper.Properties.Resources.blank;
                     EmptySpace(x, y);
@@ -101,22 +100,10 @@ namespace Minesweeper
                 case 8:
                     btn[x, y].BackgroundImage = Minesweeper.Properties.Resources._8;
                     break;
-
-                case -1:
-                    btn[x, y].BackgroundImage = Minesweeper.Properties.Resources.bmb;
-                    if (!gameover)
-                        GameOver();
-                    break;
             }
 
         }
-
-        bool isPointOnMap(int x, int y)
-        {
-            if (x >= 1 && x <= width && y >= 1 && y <= height)
-                return true;
-            return false;
-        }
+        
 
         void EmptySpace(int x, int y)
         {
@@ -124,21 +111,28 @@ namespace Minesweeper
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    int cx = x + dx8[i];
-                    int cy = y + dy8[i];
+                    int x2 = x + dx8[i];
+                    int y2 = y + dy8[i];
 
-                    if (isPointOnMap(cx, cy))
-                        if (btn[cx, cy].Enabled == true && btn_prop[cx, cy] != -1 && !gameover)
+                    if (PointExists(x2, y2))
+                        if (btn[x2, y2].Enabled == true && btn_prop[x2, y2] != -1 && !gameover)
                         {
                             gameProgress.Value++;
                             score.Text = "Score: " + gameProgress.Value.ToString();
-                            set_ButtonImage(cx, cy);
+                            set_ButtonImage(x2, y2);
                         }
                 }
             }
         }
 
-        void Discover_Map()
+        bool PointExists(int x, int y)
+        {
+            if (x >= 1 && x <= width && y >= 1 && y <= height)
+                return true;
+            return false;
+        }
+
+        void RevealGrid()
         {
             for (int i = 1; i <= width; i++)
                 for (int j = 1; j <= height; j++)
@@ -160,7 +154,7 @@ namespace Minesweeper
                 Properties.Settings.Default.Save();
             }
 
-            Discover_Map();
+            RevealGrid();
             MessageBox.Show("Game Over!");
         }
 
@@ -193,7 +187,7 @@ namespace Minesweeper
                 Properties.Settings.Default.Save();
             }
 
-            Discover_Map();
+            RevealGrid();
             gameProgress.Value = 0;
             MessageBox.Show("You win!");
         } 
@@ -216,8 +210,8 @@ namespace Minesweeper
         private void OneClick(object sender, EventArgs e)
         {
             coord = ((Button)sender).Location;
-            int x = (coord.X - start_x) / buttonSize;
-            int y = (coord.Y - start_y) / buttonSize;
+            int x = (coord.X - start_x) / btnSize;
+            int y = (coord.Y - start_y) / btnSize;
 
             if (btn_prop[x, y] != flag_value)
             {
@@ -243,10 +237,10 @@ namespace Minesweeper
             int score = 0;
             for (int i = 0; i < 8; i++)
             {
-                int cx = x + dx8[i];
-                int cy = y + dy8[i];
+                int x2 = x + dx8[i];
+                int y2 = y + dy8[i];
 
-                if (isPointOnMap(cx, cy) && btn_prop[cx, cy] == -1)
+                if (PointExists(x2, y2) == true && btn_prop[x2, y2] == -1)
                     score++;
             }
             return score;
@@ -263,15 +257,15 @@ namespace Minesweeper
                     }
         }
 
-        private void RightClick(object sender, MouseEventArgs e)
+        private void RightClick(object sender, MouseEventArgs m)
         {
 
-            if (e.Button == MouseButtons.Right)
+            if (m.Button == MouseButtons.Right)
             {
 
                 coord = ((Button) sender).Location;
-                int x = (coord.X - start_x) / buttonSize;
-                int y = (coord.Y - start_y) / buttonSize;
+                int x = (coord.X - start_x) / btnSize;
+                int y = (coord.Y - start_y) / btnSize;
 
                 if (btn_prop[x, y] != flag_value && flags > 0)
                 {
@@ -300,7 +294,7 @@ namespace Minesweeper
                 for (int j = 1; j <= y; j++)
                 {
                     btn[i, j] = new Button();
-                    btn[i, j].SetBounds(i * buttonSize + start_x, j * buttonSize + start_y, distance_between, distance_between);
+                    btn[i, j].SetBounds(i * btnSize + start_x, j * btnSize + start_y, distanceBtwn, distanceBtwn);
                     btn[i, j].Click += new EventHandler(OneClick);
                     btn[i, j].MouseUp += new MouseEventHandler(RightClick);
                     btn_prop[i, j] = 0;
@@ -310,7 +304,7 @@ namespace Minesweeper
                 }
         }
 
-        void GenerateMap(int x, int y, int mines)
+        void SetMines(int x, int y, int mines)
         {
             Random rand = new Random();
             List<int> coordx = new List<int>();
@@ -358,9 +352,8 @@ namespace Minesweeper
             if (firstPlay)
                 CreateButtons(width, height);
 
-            GenerateMap(width, height, mines);
+            SetMines(width, height, mines);
             SetMapNumbers(width, height);
-
         }
 
         void ResetGame(int x, int y)
@@ -454,8 +447,8 @@ namespace Minesweeper
 
         void TableMargins(int x, int y)
         {
-            start_x = (this.Size.Width - (width + 2) * distance_between) / 2;
-            start_y = (this.Size.Height - (height + 2) * distance_between) / 2;
+            start_x = (this.Size.Width - (width + 2) * distanceBtwn) / 2;
+            start_y = (this.Size.Height - (height + 2) * distanceBtwn) / 2;
         }
 
         private void highScoreReset_Click(object sender, EventArgs e)
@@ -489,7 +482,7 @@ namespace Minesweeper
             }
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs m)
         {
             seconds++;
 
