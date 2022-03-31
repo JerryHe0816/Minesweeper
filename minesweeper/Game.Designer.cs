@@ -284,7 +284,7 @@
             this.MinimumSize = new System.Drawing.Size(900, 554);
             this.Name = "Game";
             this.Text = "Game";
-            this.Load += new System.EventHandler(this.Game_Load);
+            this.Load += new System.EventHandler(this.gameLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

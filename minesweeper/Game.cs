@@ -35,7 +35,7 @@ namespace Minesweeper
         int btnSize = 20;
         int distanceBtwn = 20;
 
-        private void Game_Load(object sender, EventArgs e)
+        private void gameLoad(object sender, EventArgs e)
         {
 
         }
@@ -45,7 +45,7 @@ namespace Minesweeper
             InitializeComponent();
         }
 
-        void set_ButtonImage(int x, int y)
+        void setButtonImage(int x, int y)
         {
             btn[x, y].Enabled = false;
             btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
@@ -119,7 +119,7 @@ namespace Minesweeper
                         {
                             gameProgress.Value++;
                             score.Text = "Score: " + gameProgress.Value.ToString();
-                            set_ButtonImage(x2, y2);
+                            setButtonImage(x2, y2);
                         }
                 }
             }
@@ -138,7 +138,7 @@ namespace Minesweeper
                 for (int j = 1; j <= height; j++)
                     if (btn[i, j].Enabled == true)
                     {
-                        set_ButtonImage(i, j);
+                        setButtonImage(i, j);
                     }
         }
 
@@ -228,11 +228,11 @@ namespace Minesweeper
                     Check_ClickWin();
                 }
 
-                set_ButtonImage(x, y);
+                setButtonImage(x, y);
             }
         }
 
-        int MinesAround(int x, int y)
+        /*int MinesAround(int x, int y)
         {
             int score = 0;
             for (int i = 0; i < 8; i++)
@@ -244,7 +244,7 @@ namespace Minesweeper
                     score++;
             }
             return score;
-        }
+        }*/
 
         void SetMapNumbers(int x, int y)
         {
@@ -252,8 +252,14 @@ namespace Minesweeper
                 for (int j = 1; j <= y; j++)
                     if (btn_prop[i, j] != -1)
                     {
-                        btn_prop[i, j] = MinesAround(i, j);
-                        saved_btn_prop[i, j] = MinesAround(i, j);
+                        int minesaround = 0;
+                        for (int k = 0; k < 8; k++)
+                        {
+                            if (PointExists(i + dx8[k], j + dy8[k]) == true && btn_prop[i + dx8[k], j + dy8[k]] == -1)
+                                minesaround++;
+                        }
+                        btn_prop[i, j] = minesaround;
+                        saved_btn_prop[i, j] = minesaround;
                     }
         }
 
@@ -445,12 +451,6 @@ namespace Minesweeper
 
         }
 
-        void TableMargins(int x, int y)
-        {
-            start_x = (this.Size.Width - (width + 2) * distanceBtwn) / 2;
-            start_y = (this.Size.Height - (height + 2) * distanceBtwn) / 2;
-        }
-
         private void highScoreReset_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.highScore = "0";
@@ -463,7 +463,8 @@ namespace Minesweeper
             if (CorrectFields())
             {
                 SetDimensions();
-                TableMargins(height, width);
+                start_x = (this.Size.Width - (width + 2) * distanceBtwn) / 2;
+                start_y = (this.Size.Height - (height + 2) * distanceBtwn) / 2;
 
                 if (firstPlay)
                 {
