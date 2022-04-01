@@ -48,7 +48,7 @@ namespace Minesweeper
         void setButtonImage(int x, int y)
         {
             btn[x, y].Enabled = false;
-            btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+            btn[x, y].BackgroundImageLayout = ImageLayout.Zoom;
 
             if (gameover == true && btn_prop[x, y] == flag_value)
                 btn_prop[x, y] = saved_btn_prop[x, y];
@@ -219,7 +219,7 @@ namespace Minesweeper
                 ((Button)sender).Enabled = false;
                 ((Button)sender).Text = "";
 
-                ((Button)sender).BackgroundImageLayout = ImageLayout.Stretch;
+                ((Button)sender).BackgroundImageLayout = ImageLayout.Zoom;
 
                 if (btn_prop[x, y] != -1 && !gameover)
                 {
@@ -231,21 +231,6 @@ namespace Minesweeper
                 setButtonImage(x, y);
             }
         }
-
-        /*int MinesAround(int x, int y)
-        {
-            int score = 0;
-            for (int i = 0; i < 8; i++)
-            {
-                int x2 = x + dx8[i];
-                int y2 = y + dy8[i];
-
-                if (PointExists(x2, y2) == true && btn_prop[x2, y2] == -1)
-                    score++;
-            }
-            return score;
-        }*/
-
         void SetMapNumbers(int x, int y)
         {
             for (int i = 1; i <= x; i++)
@@ -275,7 +260,7 @@ namespace Minesweeper
 
                 if (btn_prop[x, y] != flag_value && flags > 0)
                 {
-                    btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+                    btn[x, y].BackgroundImageLayout = ImageLayout.Zoom;
                     btn[x, y].BackgroundImage = Minesweeper.Properties.Resources.flag;
                     btn_prop[x, y] = flag_value;
                     flags--;
@@ -285,7 +270,7 @@ namespace Minesweeper
                     if (btn_prop[x, y] == flag_value)
                     {
                         btn_prop[x, y] = saved_btn_prop[x, y];
-                        btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+                        btn[x, y].BackgroundImageLayout = ImageLayout.Zoom;
                         btn[x, y].BackgroundImage = null;
                         flags++;
                     }
